@@ -1,0 +1,12 @@
+{
+  "name": "wib-lazyload",
+  "version": "1.0.0",
+  "description": "WIB - Lazyload Support",
+  "main": "index.js",
+  "repository": "https://github.com/SungmanYou/wib-lazyload",
+  "author": "Sungman You",
+  "license": "MIT",
+  "dependencies": {
+    "lazysizes": "^4.1.7"
+  }
+}
