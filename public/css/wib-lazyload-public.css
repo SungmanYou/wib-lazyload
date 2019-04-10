@@ -10,7 +10,7 @@
     width: 100%;
 }
 
-.ls-mediabox .ls-mediabox-img {
+.ls-mediabox-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@
     font-family: "blur-up: always", "object-fit: cover";
 }
 
-.ls-mediabox .ls-blur-up-img {
+.ls-blur-up-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,12 +30,12 @@
     display: block;
     object-fit: cover;
     font-family: "blur-up: always", "object-fit: cover";
-    filter: blur(10px);
+    filter: blur(15px);
     opacity: 1;
     transition: opacity 1500ms, filter 1500ms;
 }
 
-.ls-mediabox .ls-blur-up-img.ls-inview.ls-original-loaded {
+.ls-blur-up-img.ls-inview.ls-original-loaded {
     opacity: 0;
     filter: blur(1px);
 }

@@ -1,27 +1,6 @@
 <?php
-
 /**
- * The file that defines the core plugin class
- *
- * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the admin area.
- *
  * @link       https://github.com/SungmanYou
- * @since      1.0.0
- *
- * @package    Wib_Lazyload
- * @subpackage Wib_Lazyload/includes
- */
-
-/**
- * The core plugin class.
- *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
- *
- * Also maintains the unique identifier of this plugin as well as the current
- * version of the plugin.
- *
  * @since      1.0.0
  * @package    Wib_Lazyload
  * @subpackage Wib_Lazyload/includes
@@ -52,15 +31,17 @@ class Wib_Lazyload
     private function define_public_hooks()
     {
         $plugin_public = new Wib_Lazyload_Public($this->get_plugin_name(), $this->get_version());
+        $plugin_public->define_global_functions();
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 0);
-        $this->loader->add_action('wp_footer', $plugin_public, 'enqueue_lazysizes', 0);
+        $this->loader->add_action('wp_footer', $plugin_public, 'enqueue_lazysizes', 0); // MUST be hooked on 'wp_footer' for top priority.
+        $this->loader->add_filter('post_thumbnail_html', $plugin_public, 'filter_post_thumbnail_html', 10, 5);
     }
 
-	// Runner
+    // Runner
     public function run()
     {$this->loader->run();}
 
-	// Getters
+    // Getters
     public function get_plugin_name()
     {return $this->plugin_name;}
     public function get_loader()
