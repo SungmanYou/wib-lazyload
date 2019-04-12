@@ -89,7 +89,7 @@ class Wib_Lazyload_Public
                 $_REQUEST['size'] = $size;
 
                 ob_start();
-                include 'partials/attachment_image.php';
+                include 'partials/attachment-image.php';
                 $html = ob_get_clean();
                 echo $html;
             }
